@@ -4,28 +4,35 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("Select a random number: ");
-        int randomNumber = int.Parse(Console.ReadLine());
-        int guessedNumber = -1;
-
-        while (guessedNumber != randomNumber)
+        string response;
+        do
         {
-            Console.Write("Take a guess ");
-            guessedNumber = int.Parse(Console.ReadLine());
-
-            if (randomNumber > guessedNumber)
-            {
-                Console.WriteLine("Higher");
-            }
-            else if (randomNumber < guessedNumber)
-            {
-                Console.WriteLine("Lower");
-            }
-            else
-            {
-                Console.WriteLine("You guessed it");
-            }
-        }
+            Random randomGenerator = new Random();
+            int magicNumber = randomGenerator.Next(1, 100);
         
+            int guessedNumber = -1;
+
+            while (guessedNumber != magicNumber)
+            {
+                Console.Write("Take a guess ");
+                guessedNumber = int.Parse(Console.ReadLine());
+
+                if (magicNumber > guessedNumber)
+                {
+                    Console.WriteLine("Higher");
+                }
+                else if (magicNumber < guessedNumber)
+                {
+                    Console.WriteLine("Lower");
+                }
+                else
+                {
+                    Console.WriteLine("You guessed it");
+                }
+            }
+            Console.Write("Do you want to continue? ");
+            response = Console.ReadLine();
+        } while (response == "yes");
+        Console.WriteLine("End of the game");
     }
 }
