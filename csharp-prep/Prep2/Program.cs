@@ -8,26 +8,38 @@ class Program
         Console.Write("What's the student's final score? ");
         string score = Console.ReadLine();
         int grade = int.Parse(score);
+        string letter;
 
         if (grade >= 90)
         {
-            Console.WriteLine("They're final grade is an A");
+            letter = "A";
         }
         else if (grade < 90 && grade >= 80)
         {
-            Console.WriteLine("They're final grade is a B");
+            letter = "B";
         }
         else if (grade < 80 && grade >= 70)
         {
-            Console.WriteLine("They're final grade is a C");
+            letter = "C";   
         }
         else if (grade < 70 && grade >= 60)
         {
-            Console.WriteLine("They're final grade is a D");
+            letter = "D";
         }
         else
         {
-            Console.WriteLine("They're final grade is an F");
+            letter = "F";
+        }
+
+        if (letter == "A" || letter == "B" || letter == "C")
+        {
+            Console.WriteLine($"Your final grade is {letter}");
+            Console.WriteLine("Congratulations on your hard work!");
+        }
+        else
+        {
+            Console.WriteLine($"Your final grade is: {letter}");
+            Console.WriteLine("Work harder next time!");     
         }
     }
 }
