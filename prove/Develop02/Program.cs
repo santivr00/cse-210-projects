@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 class Program
 {
@@ -7,6 +9,7 @@ class Program
         PromptGenerator promptGenerator = new PromptGenerator();
         Journal journal = new Journal();
 
+        // Write a new entry
         string _randomPrompt = promptGenerator.GetPrompt();
         Console.WriteLine($"Prompt: {_randomPrompt}");
         Console.Write("Response: ");
@@ -15,7 +18,15 @@ class Program
         journal.AddEntry(_date, _randomPrompt, _response);
         Console.WriteLine();
 
+        // Display all entries
         Console.WriteLine("Your journal entries:");
         journal.DisplayEntries();
+
+        // Save to file
+        string filename;
+        Console.Write("Enter the filename to save the journal to: ");
+        filename = Console.ReadLine();
+        Journal.SaveToFile(journal.entries, filename);
+        Console.WriteLine();
     }
 } 

@@ -4,7 +4,7 @@ using System.IO;
 
 public class Journal
 {
-    private List<Entry> entries;
+    public List<Entry> entries;
 
     public Journal()
     {
@@ -27,15 +27,13 @@ public class Journal
         }
     }
 
-    public static void SaveToFile(List<Entry> entries)
+    public static void SaveToFile(List<Entry> entries, string filename)
     {
-        string filename = "my_journal.txt";
-
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
             foreach (Entry entry in entries)
             {
-                outputFile.WriteLine($"{entry._date}|{entry._prompt}|{entry._response}");
+                outputFile.WriteLine($"{entry._date} | {entry._prompt} | {entry._response}");
             }
         }
     }
