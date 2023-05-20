@@ -37,4 +37,20 @@ public class Journal
             }
         }
     }
+
+    public void LoadFromFile(string filename)
+    {
+        Console.WriteLine("Loading from file...");
+        string[] lines = File.ReadAllLines(filename);
+        foreach (string line in lines)
+        {
+            string[] entryParts = line.Split(" | ");
+            string date = entryParts[0];
+            string prompt = entryParts[1];
+            string response = entryParts[2];
+
+            Entry entry = new Entry(date, prompt, response);
+            entries.Add(entry);
+        } 
+    }
 }

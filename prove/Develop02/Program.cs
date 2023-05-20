@@ -8,6 +8,13 @@ class Program
     {
         PromptGenerator promptGenerator = new PromptGenerator();
         Journal journal = new Journal();
+        string filename;
+        
+        //Load from file
+        Console.Write("Enter the filename to load the journal from: ");
+        filename = Console.ReadLine();
+        journal.LoadFromFile(filename);
+        Console.WriteLine();
 
         // Write a new entry
         string _randomPrompt = promptGenerator.GetPrompt();
@@ -23,10 +30,12 @@ class Program
         journal.DisplayEntries();
 
         // Save to file
-        string filename;
+
         Console.Write("Enter the filename to save the journal to: ");
         filename = Console.ReadLine();
         Journal.SaveToFile(journal.entries, filename);
         Console.WriteLine();
+
+
     }
 } 
