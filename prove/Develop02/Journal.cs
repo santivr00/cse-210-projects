@@ -40,7 +40,6 @@ public class Journal
 
     public void LoadFromFile(string filename)
     {
-        Console.WriteLine("Loading from file...");
         string[] lines = File.ReadAllLines(filename);
         foreach (string line in lines)
         {
@@ -51,6 +50,7 @@ public class Journal
 
             Entry entry = new Entry(date, prompt, response);
             entries.Add(entry);
-        } 
+        }
+        Console.WriteLine("Your journal has been loaded");
     }
 }
