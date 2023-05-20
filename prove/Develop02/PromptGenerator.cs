@@ -1,6 +1,7 @@
 using System;
 
-class PromptGenerator{
+class PromptGenerator
+{
     private List<string> _prompts;
     private Random _random;
     public PromptGenerator()

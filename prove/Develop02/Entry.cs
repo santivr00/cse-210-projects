@@ -1,12 +1,15 @@
 using System;
 
-public class Entry{
+public class Entry
+{
+    public string _date;
     public string _prompt;
     public string _response;
-    public string _date;
-    public Entry(string prompt, string response, string date){
+    
+    public Entry(string date, string prompt, string response)
+    {
+        _date = date;
         _prompt = prompt;
         _response = response;
-        _date = date;
     }
 }
