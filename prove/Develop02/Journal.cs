@@ -11,9 +11,9 @@ public class Journal
         entries = new List<Entry>();
     }
 
-    public void AddEntry(string date, string prompt, string response)
+    public void AddEntry(string date, string location, string prompt, string response)
     {
-        Entry entry = new Entry(date, prompt, response);
+        Entry entry = new Entry(date, location, prompt, response);
         entries.Add(entry);
     }
 
@@ -30,7 +30,8 @@ public class Journal
             Console.WriteLine("");
             foreach (Entry entry in entries)
             {
-                Console.WriteLine("Date: " + entry._date + " - Prompt: " + entry._prompt);
+                Console.WriteLine("Date: " + entry._date + " - Location: " + entry._location);
+                Console.WriteLine("Prompt: " + entry._prompt);
                 Console.WriteLine(entry._response);
                 Console.WriteLine();
             }
@@ -43,7 +44,7 @@ public class Journal
         {
             foreach (Entry entry in entries)
             {
-                outputFile.WriteLine($"{entry._date} | {entry._prompt} | {entry._response}");
+                outputFile.WriteLine($"{entry._date} | {entry._location} | {entry._prompt} | {entry._response}");
             }
         }
         Console.WriteLine("Journal saved to " + filename);
@@ -56,12 +57,13 @@ public class Journal
         {
             string[] entryParts = line.Split(" | ");
             string date = entryParts[0];
-            string prompt = entryParts[1];
-            string response = entryParts[2];
+            string location = entryParts[1];
+            string prompt = entryParts[2];
+            string response = entryParts[3];
 
-            Entry entry = new Entry(date, prompt, response);
+            Entry entry = new Entry(date, location, prompt, response);
             entries.Add(entry);
         }
-        Console.WriteLine("Your journal has been loaded from" + filename);
+        Console.WriteLine("Your journal has been loaded from " + filename);
     }
 }
