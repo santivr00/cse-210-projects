@@ -17,7 +17,15 @@ class PromptGenerator
         "What is a goal I want to achieve tomorrow?",
         "How did I show kindness to someone today?",
         "What made me laugh today?",
-        "What is something I am grateful for today?"
+        "What is something I am grateful for today?",
+        "What was the most challenging task I faced today?",
+        "Describe a moment of kindness you witnessed or experienced today.",
+        "Reflect on a valuable lesson you learned recently.",
+        "How did you practice self-care today?",
+        "Describe a book, movie, or TV show that made an impact on you recently.",
+        "Write about a place you would love to visit and why.",
+        "What is a skill or hobby you would like to learn or improve?",
+        "Describe a random act of kindness you performed for someone today."
         };
 
        _random = new Random(); 

@@ -19,12 +19,22 @@ public class Journal
 
     public void DisplayEntries()
     {
-        foreach (Entry entry in entries)
+        if (entries.Count == 0)
         {
-            Console.WriteLine("Date: " + entry._date + " - Prompt: " + entry._prompt);
-            Console.WriteLine(entry._response);
-            Console.WriteLine();
+            Console.WriteLine("Your journal doesn't have any entries");
+            Console.WriteLine("");
         }
+        else
+        {
+            Console.WriteLine("These are your journal entries:");
+            Console.WriteLine("");
+            foreach (Entry entry in entries)
+            {
+                Console.WriteLine("Date: " + entry._date + " - Prompt: " + entry._prompt);
+                Console.WriteLine(entry._response);
+                Console.WriteLine();
+            }
+        } 
     }
 
     public static void SaveToFile(List<Entry> entries, string filename)
@@ -36,6 +46,7 @@ public class Journal
                 outputFile.WriteLine($"{entry._date} | {entry._prompt} | {entry._response}");
             }
         }
+        Console.WriteLine("Journal saved to " + filename);
     }
 
     public void LoadFromFile(string filename)
@@ -51,6 +62,6 @@ public class Journal
             Entry entry = new Entry(date, prompt, response);
             entries.Add(entry);
         }
-        Console.WriteLine("Your journal has been loaded");
+        Console.WriteLine("Your journal has been loaded from" + filename);
     }
 }

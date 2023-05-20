@@ -37,8 +37,6 @@ class Program
                     break;
                 // Display all entries
                 case "2":
-                    Console.WriteLine("These are your journal entries:");
-                    Console.WriteLine("");
                     journal.DisplayEntries();
                     break;
                 // Save to file
